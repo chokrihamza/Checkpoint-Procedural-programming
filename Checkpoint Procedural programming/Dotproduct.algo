@@ -1,0 +1,61 @@
+//algorithme avec l'utilisation de Dotproduct comme procedure passée par référence 
+PROCEDURE Dotproduct(var Ps:FLOAT,var dimension:INTEGER,var tableau1:ARRAY_OF INTEGER,var tableau2:ARRAY_OF INTEGER)
+VAR
+    
+    i:INTEGER:=0;
+BEGIN
+   Ps:=0;
+   FOR i FROM 0 TO dimension STEP 1  DO
+       Ps:=Ps+tableau1[i]*tableau2[i];
+   END_FOR
+   write("le produit scalaire de deux vecteurs vaut:"+Ps)
+END
+//algorithme avec l'utlilisation de Dotproduct comme function passée par valeur 
+FUNCTION Dotproduc(dimension:INTEGER,var tableau1:ARRAY_OF INTEGER,var tableau2:ARRAY_OF INTEGER) : return_type
+VAR
+    i:INTEGER:=0;
+BEGIN
+    Ps:=0;
+   FOR i FROM 0 TO dimension STEP 1  DO
+       Ps:=Ps+tableau1[i]*tableau2[i];
+   END_FOR
+   RETURN ps;
+END
+
+FUNCTION setDimension() : INTEGER
+VAR
+    n:INTEGER
+BEGIN
+read(n);
+RETURN n;
+   END
+PROCEDURE readarray(n:INTEGER,var T:ARRAY_OF INTEGER)
+VAR
+    i:INTEGER;
+BEGIN
+    FOR i FROM 0 TO n STEP 1  DO
+    write("enter les elements du tableau1");
+    read(T[i]);
+END
+ALGORITHM Dotproduct_orthogonale
+VAR
+dimension:INTEGER;
+tableau1,tableau2:ARRAY_OF INTEGER[];
+produitscalaire:INTEGER:=0;    
+BEGIN
+dimension:=setDimension();
+readarray(dimension,tableau1);
+readarray(dimension,tableau2);
+Dotproduct(produitscalaire, dimension,tableau1,tableau2);
+IF (produitscalire=0) THEN
+    write("les deux vecteurs sont orthogonale");
+END_IF
+//*************code avec l'utilisation de Dotproduct comme function ******///
+produitscalaire:=Dotproduc(dimension,tableau1,tableau2);
+IF (produitscalire=0) THEN
+    write("les deux vecteurs sont orthogonale");
+END_IF
+
+//*********************************************************************/////
+END
+
